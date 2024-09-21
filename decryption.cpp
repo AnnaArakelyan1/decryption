@@ -1,4 +1,4 @@
-//encryption
+//decryption
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,21 +9,6 @@ void print(const string& str, int size) {
     }
     cout << endl;
 }
-
-string encryption(const string& text, const string& esh, const string& desh, int size) {
-    string encr;
-    for (int i = 0; i < size; i++) {
-        char current = text[i];
-        for (int j = 0; j < 26; j++) {
-            if (current == esh[j]) {
-                encr += desh[j];
-                break;
-            }
-        }
-    }
-    return encr;
-}
-
 
 string decryption(const string& text, const string& esh, const string& desh, int size) {
     string decr;
@@ -60,11 +45,11 @@ int main() {
     print(desh, 26);
     string text;
     getline(cin,text);
-    cout<<endl<<"Current text:";
+    cout<<endl<<"encrypted text:";
     print(text,text.length());
-    cout<<"encrypted text:";
-    string en=encryption(text,esh,desh,text.length());
-    cout<<en;
+    cout<<"decrypted text:";
+    string dec=decryption(text,esh,desh,text.length());
+    cout<<dec;
       
       
     return 0;
